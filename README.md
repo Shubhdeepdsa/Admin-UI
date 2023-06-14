@@ -24,7 +24,7 @@ This project is a React application that demonstrates a pagination table compone
 
 ## Installation
 
-- **Clone** the repository:
+- **Clone** the repository: https://github.com/Shubhdeepdsa/Admin-UI.git
 
 
 - **Navigate** to the project directory
