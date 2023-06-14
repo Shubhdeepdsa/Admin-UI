@@ -1,4 +1,4 @@
-# React Pagination Table
+# Admin - UI
 
 This project is a React application that demonstrates a pagination table component. It allows users to navigate through a large dataset by displaying a limited number of rows per page and providing pagination controls.
 
