@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# React Pagination Table
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a React application that demonstrates a pagination table component. It allows users to navigate through a large dataset by displaying a limited number of rows per page and providing pagination controls.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Components](#components)
+  - [App](#app)
+  - [Pagination](#pagination)
+  - [TableDisp](#tabledisp)
+  - [Footer](#footer)
+  - [PopUp](#popup)
+- [Data Structure](#data-structure)
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Pagination: Display data in pages, allowing users to navigate through the dataset.
+- Table Display: Present the data in a table format with columns and rows.
+- Row Selection: Enable users to select individual rows or all rows using checkboxes.
+- Editing: Provide a popup form to edit the data of a selected row.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+- **Clone** the repository:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+- **Navigate** to the project directory
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Install** the dependencies: npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Usage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Start the development server: npm start
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Open your browser and visit `http://localhost:3000` to view the application.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Components
 
-## Learn More
+### App
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Summary**: The main component that renders the pagination table and handles data management.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Pagination
 
-### Code Splitting
+- **Summary**: Manages the pagination logic and renders the table and footer components.
+- **Functions**:
+- `handlePageChange`: Handles the change of the current page number.
+- `handleSelectAllRows`: Handles the selection/deselection of all rows.
+- `handleRowSelection`: Handles the selection/deselection of an individual row.
+- `handleEditItem`: Sets the ID of the item to be edited and opens the editing popup.
+- `handleDeleteItem`: Deletes the selected item from the data.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### TableDisp
 
-### Analyzing the Bundle Size
+- **Summary**: Displays the table with rows.
+- **Functions**:
+- `actionHandler`: Handles actions such as editing and deleting a row.
+- `handleSelectAll`: Handles the selection/deselection of all rows.
+- `handleRowSelection`: Handles the selection/deselection of an individual row.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Footer
 
-### Making a Progressive Web App
+- **Summary**: Renders the pagination controls and page information.
+- **Functions**:
+- `handlePrevPage`: Handles navigation to the previous page.
+- `handleNextPage`: Handles navigation to the next page.
+- `handlePageClick`: Handles navigation to a specific page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### PopUp
 
-### Advanced Configuration
+- **Summary**: Shows a form popup for editing row data.
+- **Functions**:
+- `handleInput`: Updates the corresponding field (name, email, role) in the popup data object.
+- `handleSubmit`: Updates the edited data upon form submission.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Data Structure
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The data for the pagination table is structured as an array of objects, where each object represents a row in the table. Each row object contains properties such as `id`, `name`, `email`, and `role`. The data is passed to the `Pagination` component as a prop and is sliced and displayed based on the current page number.
