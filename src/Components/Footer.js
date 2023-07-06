@@ -28,7 +28,6 @@ export default function Footer(data) {
     handlePageChange(data.totalPages - 1);
   }
   function handleDeleteSelected() {
-    console.log("This is from footer", data);
     const selectedRowIds = data.currentPagedata
       .filter((element) => {
         return element.check;
@@ -36,11 +35,9 @@ export default function Footer(data) {
       .map((element) => {
         return element.id;
       });
-    console.log("This is selectedRowId", selectedRowIds);
     const updatedData = data.data.filter(
       (element) => !selectedRowIds.includes(element.id)
     );
-    // console.log('This is from footer updated',updatedData)
     data.setOverAllData(updatedData);
   }
   return (

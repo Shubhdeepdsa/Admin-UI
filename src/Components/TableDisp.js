@@ -61,6 +61,7 @@ export default function TableDisp(props) {
     });
     setCurrentPageData(updatedData);
   }
+  console.log("Current Page Data:", currentPagedata);
 
   return (
     <>

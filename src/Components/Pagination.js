@@ -3,7 +3,10 @@ import TableDisp from "./TableDisp";
 import Footer from "./Footer";
 import PopUp from "./PopUp";
 
-export default function Pagination(data) {
+export default function Pagination(props) {
+  // Destructure the props
+  const { data, setData, pageNum, setPageNum, setEditing } = props;
+
   // State variables
   const [currentPagedata, setCurrentPageData] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
@@ -16,7 +19,7 @@ export default function Pagination(data) {
   // Effect for updating the current page data when data or pageNum changes
   useEffect(() => {
     pageDataGenerator();
-  }, [data.data, data.pageNum]);
+  }, [data, pageNum]);
 
   // Effect for handling selection changes
   useEffect(() => {
@@ -34,19 +37,18 @@ export default function Pagination(data) {
 
   // Renders the table component
   function tableDisplayer() {
-    console.log(data.data);
     return (
       <TableDisp
         data={currentPagedata}
-        setOverAllData={data.setData}
-        overAllData={data.data}
+        setOverAllData={setData}
+        overAllData={data}
         setCurrentPageData={setCurrentPageData}
         currentPagedata={currentPagedata}
-        setEditing={data.setEditing}
+        setEditing={setEditing}
         setEditItemId={setEditItemId}
         editItemId={editItemId}
         setPopUpData={setPopUpData}
-        pageNum={data.pageNum}
+        pageNum={pageNum}
         setSelectAllRows={setSelectAllRows}
       />
     );
@@ -54,20 +56,19 @@ export default function Pagination(data) {
 
   // Generates the current page data based on the current pageNum
   function pageDataGenerator() {
-    let totalPage = Math.floor(data.data.length / 10);
+    const totalPage = Math.floor(data.length / 10);
     setTotalPages(totalPage);
 
-    let start = data.pageNum * 10;
-    let end = (data.pageNum + 1) * 10;
+    const start = pageNum * 10;
+    const end = (pageNum + 1) * 10;
     let pageData = [];
 
-    if (end <= data.data.length) {
-      pageData = [...data.data.slice(start, end)];
-      setCurrentPageData(pageData);
-    } else if (end > data.data.length) {
-      pageData = [...data.data.slice(start)];
-      setCurrentPageData(pageData);
+    if (end <= data.length) {
+      pageData = data.slice(start, end);
+    } else if (end > data.length) {
+      pageData = data.slice(start);
     }
+    setCurrentPageData(pageData);
   }
 
   return (
@@ -78,25 +79,23 @@ export default function Pagination(data) {
       {/* Render the footer */}
       <Footer
         totalPages={totalPages}
-        currentPage={data.pageNum}
-        setPageNum={data.setPageNum}
+        currentPage={pageNum}
+        setPageNum={setPageNum}
         currentPagedata={currentPagedata}
-        setOverAllData={data.setData}
-        data={data.data}
+        setOverAllData={setData}
+        data={data}
       />
 
       {/* Render the popup if editing is enabled */}
-      {data.editing ? (
+      {props.editing && (
         <PopUp
-          data={data.data}
-          setEditing={data.setEditing}
-          setData={data.setData}
+          data={data}
+          setEditing={setEditing}
+          setData={setData}
           editItemId={editItemId}
           setPopUpData={setPopUpData}
           popUpData={popUpData}
         />
-      ) : (
-        <></>
       )}
     </>
   );

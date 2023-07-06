@@ -18,6 +18,7 @@ function App() {
   //Will run when any change in Search Bar
   useEffect(() => {
     searchData(keyWord);
+    setPageNum(0);
   }, [keyWord]);
   //Will run when any change in Page number
   useEffect(() => {
@@ -50,8 +51,9 @@ function App() {
       });
       setData(responseJson);
       setFullDataSet(responseJson);
-      console.log(data);
-    } catch (error) {}
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   }
   //Updates the Search State
   function updateDataSearch(newValue) {
