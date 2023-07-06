@@ -82,3 +82,11 @@ This project is a React application that demonstrates a pagination table compone
 ## Data Structure
 
 The data for the pagination table is structured as an array of objects, where each object represents a row in the table. Each row object contains properties such as `id`, `name`, `email`, and `role`. The data is passed to the `Pagination` component as a prop and is sliced and displayed based on the current page number.
+## Demo
+![image](https://github.com/Shubhdeepdsa/Admin-UI/assets/90149745/a3adff76-3a74-4bdb-b1aa-9dad0a7ec5a5)
+![image](https://github.com/Shubhdeepdsa/Admin-UI/assets/90149745/b3e4b6d6-5a7c-44be-91a4-1753513fbf8b)
+![image](https://github.com/Shubhdeepdsa/Admin-UI/assets/90149745/37bd4257-023c-47e1-97e3-7af06a482ee3)
+![image](https://github.com/Shubhdeepdsa/Admin-UI/assets/90149745/b1b6e0cb-059b-47f0-8d4e-573ead6edb1c)
+
+
+
