@@ -32,7 +32,6 @@ export default function TableDisp(props) {
       // Enable editing mode
       setEditing(true);
     } else if (type === "delete") {
-      console.log(data);
 
       // Update the data arrays after deleting the selected item
       const temp = overAllData;
@@ -61,8 +60,6 @@ export default function TableDisp(props) {
     });
     setCurrentPageData(updatedData);
   }
-  console.log("Current Page Data:", currentPagedata);
-
   return (
     <>
       <div className="body">

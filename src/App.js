@@ -68,7 +68,6 @@ function App() {
         items.role.toLowerCase().includes(value)
       );
     });
-    console.log("This is filtered", filteredData);
     setData(filteredData);
   }
   return (
